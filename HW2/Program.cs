@@ -13,6 +13,38 @@ namespace HW2
 			"4 - Удаление формата из списка",
 			"5 - Выход"
 		};
+		static void Main(string[] args)
+		{
+			Dictionary<string, string> extension = new Dictionary<string, string>();
+			extension.Add(".dll", "Dynamic Link Library");
+			extension.Add(".exe", "Executable file");
+			extension.Add(".ini", "Initialization file");
+			extension.Add(".zip", "Archive file");
+			extension.Add(".cs", "C Sharp file");
+			ConsoleKey key = ConsoleKey.Enter;
+			do
+			{
+				PrintMenu();
+				key = Console.ReadKey().Key;
+				switch (key)
+				{
+					case ConsoleKey.D1:
+						PrintDictionary(extension);
+						break;
+					case ConsoleKey.D2:
+						AddForm(extension);
+						break;
+					case ConsoleKey.D3:
+						FindForm(extension);
+						break;
+					case ConsoleKey.D4:
+						DelForm(extension);
+						break;
+					default: continue;
+				}
+			} while (key != ConsoleKey.D5);
+			Console.WriteLine("Удачи!");
+		}
 		static public void PrintMenu()
 		{
 			Console.Clear();
@@ -124,38 +156,6 @@ namespace HW2
 			}
 			Console.WriteLine("Для прехода в меню нажмите любую клавишу... ");
 			Console.ReadKey();
-		}
-		static void Main(string[] args)
-		{
-			Dictionary<string, string> extension = new Dictionary<string, string>();
-			extension.Add(".dll", "Dynamic Link Library");
-			extension.Add(".exe", "Executable file");
-			extension.Add(".ini", "Initialization file");
-			extension.Add(".zip", "Archive file");
-			extension.Add(".cs", "C Sharp file");
-			ConsoleKey key = ConsoleKey.Enter; 
-			do
-			{
-				PrintMenu();
-				key = Console.ReadKey().Key;
-				switch (key)
-				{
-					case ConsoleKey.D1:
-						PrintDictionary(extension);
-						break;
-					case ConsoleKey.D2:
-						AddForm(extension);
-						break;
-					case ConsoleKey.D3:
-						FindForm(extension);
-						break;
-					case ConsoleKey.D4:
-						DelForm(extension);
-						break;
-					default: continue;
-				}
-			} while (key != ConsoleKey.D5);
-			Console.WriteLine("Удачи!");
 		}
 	}
 }
