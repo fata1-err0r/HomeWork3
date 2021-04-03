@@ -18,13 +18,11 @@ namespace HW1
                 Console.Write($"На {i} посетителя будет затрачено: ");
                 time.Enqueue(CheckInt());
             }
-            int visitorsS = 0;
             while ((postT > 0) && (time.Count != 0))
             {
                 postT -= time.Dequeue();
-                visitorsS++;
             }
-            Console.Write($"Почта не успела обслужить {visitorsN - visitorsS} посетителей ");
+            Console.Write($"Почта не успела обслужить {time.Count} посетителей ");
             Console.ReadKey();
         }
         static int CheckInt() // Метод для проверки целочисленного положительного числа
